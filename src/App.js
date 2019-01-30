@@ -11,12 +11,13 @@ class App extends Component {
         );
         this.state = {
             items: [],
+            defaultMovie: 'spiderman',
         };
     }
 
     componentDidMount() {
-        const url =
-            'https://api.themoviedb.org/3/search/movie?api_key=403ffcb3b4481da342203f94fb6e937e&query=spiderman&include_adult=false';
+        const { defaultMovie } = this.state;
+        const url = `https://api.themoviedb.org/3/search/movie?api_key=403ffcb3b4481da342203f94fb6e937e&include_adult=false&query=${defaultMovie}`;
         this.fetchApi(url);
     }
 
@@ -31,7 +32,16 @@ class App extends Component {
     }
 
     fetchMovieFromSearchInput(searchInput) {
-        const url = `https://api.themoviedb.org/3/search/movie?api_key=403ffcb3b4481da342203f94fb6e937e&query=${searchInput}&include_adult=false`;
+        const { defaultMovie } = this.state;
+        const baseURL =
+            'https://api.themoviedb.org/3/search/movie?api_key=403ffcb3b4481da342203f94fb6e937e&include_adult=false&query=';
+        let url;
+        if (searchInput === '') {
+            url = `${baseURL}${defaultMovie}`;
+        } else {
+            url = `${baseURL}${searchInput}`;
+        }
+
         this.fetchApi(url);
     }
 
