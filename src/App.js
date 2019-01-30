@@ -29,7 +29,6 @@ class App extends Component {
                 this.setState({
                     items: data.results,
                 });
-                console.log(data.results[0]);
             });
     }
 
