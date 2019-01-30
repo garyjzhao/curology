@@ -14,6 +14,7 @@ class App extends Component {
         this.changePage = this.changePage.bind(this);
         this.state = {
             items: [],
+            isLoaded: false,
             defaultMovie: 'star wars',
             currentPage: 1,
             itemsPerPage: 3,
@@ -38,6 +39,7 @@ class App extends Component {
             .then(data => {
                 this.setState({
                     items: data.results,
+                    isLoaded: true
                 });
             });
     }
@@ -55,7 +57,7 @@ class App extends Component {
     }
 
     render() {
-        const { items, currentPage, itemsPerPage } = this.state;
+        const { items, isLoaded, currentPage, itemsPerPage } = this.state;
 
         // Logic to figure out which items to display on page
         // according to how many items per page (default: 3) and
@@ -63,6 +65,20 @@ class App extends Component {
         const indexOfLastItem = currentPage * itemsPerPage;
         const indexofFirstItem = indexOfLastItem - itemsPerPage;
         const currentItems = items.slice(indexofFirstItem, indexOfLastItem);
+
+        // To show user if data is loading or has no results
+        let comments;
+        // Check to see if json data is loaded
+        if (isLoaded) {
+            // Check to see if data is returning data
+            if (items[0]) {
+                comments = '';
+            } else {
+                comments = 'No Results.';
+            }
+        } else {
+            comments = 'Loading...';
+        }
 
         return (
             <>
@@ -78,6 +94,7 @@ class App extends Component {
                         currentPage={currentPage}
                         handleClick={this.changePage}
                     />
+                    <p className='comments'>{comments}</p>
                     <ul className="movie-listing">
                         {currentItems.map((item, i) => (
                             <Listing
