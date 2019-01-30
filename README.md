@@ -1,7 +1,6 @@
 # Gary Zhao's Coding Submission for [Curlogy](https://curology.com/).
 
-
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+View live site here: https://www.garyzhao.com/curology/
 
 ## Available Scripts
 
@@ -29,3 +28,7 @@ Figuring out the pagination was a bit tricky because I had to think about logic 
 
 ## Design Choices
 Pretty much followed what screenshot I received from the Google Doc. The only thing that I made a change to is how the stars are displayed. Instead of showing ten stars and filling the stars according to the movie's rating, I copied the way IMDB displayed their star rating. The result was simplier to code and displays the same information.
+
+
+
+This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
