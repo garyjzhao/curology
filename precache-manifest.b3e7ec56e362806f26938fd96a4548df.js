@@ -1,11 +1,11 @@
 self.__precacheManifest = [
   {
-    "revision": "6c7e345e241a0c84a60a",
-    "url": "/curology/static/css/main.3bb8a969.chunk.css"
+    "revision": "79086c7c5a861b2cd1d6",
+    "url": "/curology/static/css/main.e9ecd597.chunk.css"
   },
   {
-    "revision": "6c7e345e241a0c84a60a",
-    "url": "/curology/static/js/main.6c7e345e.chunk.js"
+    "revision": "79086c7c5a861b2cd1d6",
+    "url": "/curology/static/js/main.79086c7c.chunk.js"
   },
   {
     "revision": "fbfa9ac1c04d6f818c50",
@@ -16,7 +16,7 @@ self.__precacheManifest = [
     "url": "/curology/static/js/runtime~main.be80154e.js"
   },
   {
-    "revision": "9f04ca9e87eef167b8dcfb484e961988",
+    "revision": "19a6edfd0ddede5003aaa6b017a992c6",
     "url": "/curology/index.html"
   }
 ];

@@ -14,7 +14,7 @@
 importScripts("https://storage.googleapis.com/workbox-cdn/releases/3.6.3/workbox-sw.js");
 
 importScripts(
-  "/curology/precache-manifest.15ab87429832274f071c94f9b5b2ec91.js"
+  "/curology/precache-manifest.b3e7ec56e362806f26938fd96a4548df.js"
 );
 
 workbox.clientsClaim();
