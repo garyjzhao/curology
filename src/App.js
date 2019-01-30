@@ -3,7 +3,7 @@ import Input from './components/Input';
 import Listing from './components/Listing';
 import Pagination from './components/Pagination';
 import Footer from './components/Footer';
-import './App.css';
+import './styles/App.css';
 
 class App extends Component {
     constructor(props) {
@@ -39,7 +39,6 @@ class App extends Component {
                 this.setState({
                     items: data.results,
                 });
-                console.log(data.results[0]);
             });
     }
 
@@ -48,7 +47,7 @@ class App extends Component {
         const baseURL =
             'https://api.themoviedb.org/3/search/movie?api_key=403ffcb3b4481da342203f94fb6e937e&include_adult=false&query=';
         const url =
-            searchInput === ''
+            searchInput === '' || searchInput === ' '
                 ? `${baseURL}${defaultMovie}`
                 : `${baseURL}${searchInput}`;
         this.fetchApi(url);
