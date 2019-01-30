@@ -18,7 +18,7 @@ class App extends Component {
         // 403ffcb3b4481da342203f94fb6e937e
         // https://api.themoviedb.org/3/search/movie?api_key=403ffcb3b4481da342203f94fb6e937e&query=${searchQuery}
         const url =
-            'https://api.themoviedb.org/3/search/movie?api_key=403ffcb3b4481da342203f94fb6e937e&query=lord%20of%20the%20rings';
+            'https://api.themoviedb.org/3/search/movie?api_key=403ffcb3b4481da342203f94fb6e937e&query=spiderman';
         fetch(url)
             .then(res => res.json())
             .then(data => {
