@@ -18,3 +18,31 @@
     display: flex;
 }
 
+.listing__img {
+    margin-right: 15px;
+}
+
+.listing__img.no-image {
+    background-color: #ccc;
+    flex: 0 0 154px;
+    height: 200px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.listing__copy {
+    font-size: 12px;
+}
+
+.listing__copy h2 {
+    font-size: 24px;
+    margin: 0 0 6px;
+}
+
+.listing__copy p {
+    margin: 0 0 6px;
+}
+.listing__copy p.listing__date {
+    color: #666;
+}
