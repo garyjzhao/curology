@@ -8,8 +8,8 @@ class Input extends React.Component {
 
     handleChange(event) {
         const searchInput = event.target.value;
-        const { inputChange } = this.props;
-        inputChange(searchInput);
+        const { fetchMovie } = this.props;
+        fetchMovie(searchInput);
     }
 
     render() {
