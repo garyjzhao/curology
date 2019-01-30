@@ -29,6 +29,12 @@ Figuring out the pagination was a bit tricky because I had to think about logic 
 ## Design Choices
 Pretty much followed what screenshot I received from the Google Doc. The only thing that I made a change to is how the stars are displayed. Instead of showing ten stars and filling the stars according to the movie's rating, I copied the way IMDB displayed their star rating. The result was simplier to code and displays the same information.
 
+## Improvements if I had more time
+If I had more time, I would definitely incorporate some sorting feature, like sort according according to number of stars, alphabetical order, descending and ascending order, etc.
+
+Another feature would to make lists and have them be shareable. The idea would be for the user to be able to curate a list of movies and have that list be in a specific url, so it will be shareable.
 
 
+
+##
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
