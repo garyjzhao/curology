@@ -38,6 +38,7 @@ class App extends Component {
                 this.setState({
                     items: data.results,
                 });
+                console.log(data.results[0]);
             });
     }
 
@@ -50,6 +51,7 @@ class App extends Component {
                 ? `${baseURL}${defaultMovie}`
                 : `${baseURL}${searchInput}`;
         this.fetchApi(url);
+        this.changePage(1);
     }
 
     render() {
@@ -63,31 +65,53 @@ class App extends Component {
         const currentItems = items.slice(indexofFirstItem, indexOfLastItem);
 
         return (
-            <div className="wrapper">
-                <h1>Movie Search App</h1>
-                <Input
-                    placeholder="Enter Movie to Search"
-                    fetchMovie={this.fetchMovieFromSearchInput}
-                />
-                <Pagination
-                    items={items}
-                    itemsPerPage={itemsPerPage}
-                    handleClick={this.changePage}
-                />
-                <ul className="movie-listing">
-                    {currentItems.map((item, i) => (
-                        <Listing
-                            key={i}
-                            title={item.title}
-                            overview={item.overview}
-                            releaseDate={item.release_date}
-                            posterPath={item.poster_path}
-                            voteCount={item.vote_count}
-                            voteAverage={item.vote_average}
-                        />
-                    ))}
-                </ul>
-            </div>
+            <>
+                <div className="wrapper">
+                    <h1>Movie Search App</h1>
+                    <Input
+                        placeholder="Enter Movie to Search"
+                        fetchMovie={this.fetchMovieFromSearchInput}
+                    />
+                    <Pagination
+                        items={items}
+                        itemsPerPage={itemsPerPage}
+                        currentPage={currentPage}
+                        handleClick={this.changePage}
+                    />
+                    <ul className="movie-listing">
+                        {currentItems.map((item, i) => (
+                            <Listing
+                                key={i}
+                                title={item.title}
+                                overview={item.overview}
+                                releaseDate={item.release_date}
+                                posterPath={item.poster_path}
+                                voteCount={item.vote_count}
+                                voteAverage={item.vote_average}
+                            />
+                        ))}
+                    </ul>
+                </div>
+                <footer>
+                    Little app created by{' '}
+                    <a
+                        href="https://www.garyzhao.com/"
+                        target="_blank"
+                        rel="noopener noreferrer"
+                    >
+                        Gary Zhao
+                    </a>{' '}
+                    for{' '}
+                    <a
+                        href="https://curology.com/"
+                        target="_blank"
+                        rel="noopener noreferrer"
+                    >
+                        Curlogy
+                    </a>{' '}
+                    .
+                </footer>
+            </>
         );
     }
 }

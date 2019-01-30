@@ -13,16 +13,24 @@ class Pagination extends Component {
     }
 
     render() {
-        const { items, itemsPerPage } = this.props;
+        const { items, itemsPerPage, currentPage } = this.props;
+
         // Logic for displaying page numbers
         const pageNumbers = [];
         for (let i = 1; i <= Math.ceil(items.length / itemsPerPage); i++) {
             pageNumbers.push(i);
         }
+        // const test = current === currentPage ? 'current' : '';
+
         return (
             <ul className="pagination">
-                {pageNumbers.map(number => (
-                    <li key={number} id={number} onClick={this.handleClick}>
+                {pageNumbers.map((number, i) => (
+                    <li
+                        key={i}
+                        id={number}
+                        onClick={this.handleClick}
+                        className={number === currentPage ? 'current' : ''}
+                    >
                         {number}
                     </li>
                 ))}
