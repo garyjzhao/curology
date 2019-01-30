@@ -52,6 +52,12 @@
                 "argsIgnorePattern": "res|next|^err"
             }
         ],
+        "no-plusplus": [
+            "error",
+            {
+                "allowForLoopAfterthoughts": true
+            }
+        ],
         "prefer-const": [
             "error",
             {
