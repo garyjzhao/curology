@@ -2,6 +2,7 @@ import React, { Component } from 'react';
 import Input from './components/Input';
 import Listing from './components/Listing';
 import Pagination from './components/Pagination';
+import Footer from './components/Footer';
 import './App.css';
 
 class App extends Component {
@@ -92,25 +93,7 @@ class App extends Component {
                         ))}
                     </ul>
                 </div>
-                <footer>
-                    Little app created by{' '}
-                    <a
-                        href="https://www.garyzhao.com/"
-                        target="_blank"
-                        rel="noopener noreferrer"
-                    >
-                        Gary Zhao
-                    </a>{' '}
-                    for{' '}
-                    <a
-                        href="https://curology.com/"
-                        target="_blank"
-                        rel="noopener noreferrer"
-                    >
-                        Curlogy
-                    </a>{' '}
-                    .
-                </footer>
+                <Footer />
             </>
         );
     }
