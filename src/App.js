@@ -6,16 +6,19 @@ import './App.css';
 class App extends Component {
     constructor(props) {
         super(props);
+        this.handleChange = this.handleChange.bind(this);
         this.state = {
             items: [],
             isLoaded: false,
+            searchQuery: '',
         };
     }
 
     componentDidMount() {
         // 403ffcb3b4481da342203f94fb6e937e
+        // https://api.themoviedb.org/3/search/movie?api_key=403ffcb3b4481da342203f94fb6e937e&query=${searchQuery}
         const url =
-            'https://api.themoviedb.org/3/search/movie?api_key=403ffcb3b4481da342203f94fb6e937e&query=lord%20of%20the%20rings&page=1&include_adult=false';
+            'https://api.themoviedb.org/3/search/movie?api_key=403ffcb3b4481da342203f94fb6e937e&query=lord%20of%20the%20rings';
         fetch(url)
             .then(res => res.json())
             .then(data => {
@@ -26,13 +29,23 @@ class App extends Component {
             });
     }
 
+    handleChange(searchInput) {
+        this.setState({
+            searchQuery: searchInput,
+        });
+    }
+
     render() {
-        const { items } = this.state;
+        const { items, searchQuery } = this.state;
 
         return (
             <div className="wrapper">
                 <h1>Movie Search App</h1>
-                <Input placeholder="Enter Movie to Search" />
+                <p>{searchQuery}</p>
+                <Input
+                    placeholder="Enter Movie to Search"
+                    inputChange={this.handleChange}
+                />
                 <ul className="movie-listing">
                     {items.map((item, i) => (
                         <Listing
