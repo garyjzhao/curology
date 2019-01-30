@@ -3,46 +3,51 @@
     width: 100%;
     margin: 0 auto;
 }
-
-.wrapper h1 {
-    text-align: center;
-}
+    .wrapper h1 {
+        text-align: center;
+    }
 
 .movie-listing {
     padding: 0;
     list-style: none;
 }
-
-.movie-listing li {
-    margin-bottom: 15px;
-    display: flex;
-}
+    .movie-listing li {
+        margin-bottom: 15px;
+        display: flex;
+    }
 
 .listing__img {
     margin-right: 15px;
 }
-
-.listing__img.no-image {
-    background-color: #ccc;
-    flex: 0 0 154px;
-    height: 200px;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-}
+    .listing__img.no-image {
+        background-color: #ccc;
+        flex: 0 0 154px;
+        height: 200px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+    }
 
 .listing__copy {
     font-size: 12px;
 }
+    .listing__copy h2 {
+        font-size: 24px;
+        margin: 0 0 6px;
+    }
+    .listing__copy p {
+        margin: 0 0 6px;
+    }
+    .listing__copy p.listing__date {
+        color: #666;
+    }
 
-.listing__copy h2 {
-    font-size: 24px;
-    margin: 0 0 6px;
+.listing__copy .listing__stars  span {
+    font-size: 20px;
 }
 
-.listing__copy p {
-    margin: 0 0 6px;
-}
-.listing__copy p.listing__date {
-    color: #666;
+.listing__copy .listing__stars svg {
+    fill: orange;
+    width: 20px;
+    margin: 0 5px 0 2px;
 }

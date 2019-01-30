@@ -22,7 +22,7 @@ class App extends Component {
                 this.setState({
                     items: data.results,
                 });
-                console.log(data.results[7]);
+                console.log(data.results[0]);
             });
     }
 
@@ -37,12 +37,12 @@ class App extends Component {
                     {items.map((item, i) => (
                         <Listing
                             key={i}
-                            number={i}
                             title={item.title}
                             overview={item.overview}
                             releaseDate={item.release_date}
                             posterPath={item.poster_path}
                             voteCount={item.vote_count}
+                            voteAverage={item.vote_average}
                         />
                     ))}
                 </ul>

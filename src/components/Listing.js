@@ -1,4 +1,5 @@
 import React, { Component } from 'react';
+import Stars from './Stars';
 
 export default class Listing extends Component {
     render() {
@@ -8,6 +9,7 @@ export default class Listing extends Component {
             releaseDate,
             posterPath,
             voteCount,
+            voteAverage,
         } = this.props;
         let listingImg;
 
@@ -30,9 +32,7 @@ export default class Listing extends Component {
                     <h2>{title}</h2>
                     <p className="listing__date">{releaseDate}</p>
                     <p>{overview}</p>
-                    <div className="listing__stars">
-                        <span className="" /> on {voteCount} reviews.
-                    </div>
+                    <Stars voteCount={voteCount} voteAverage={voteAverage} />
                 </div>
             </li>
         );
