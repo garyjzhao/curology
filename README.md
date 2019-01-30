@@ -8,7 +8,7 @@ This project was bootstrapped with [Create React App](https://github.com/faceboo
 In the project directory, you can run:
 
 ### `npm i && npm start`
-On first load, run the above commands in CLI to install appropriate dependenices and runs the app in development mode.
+On first load, run the above commands in CLI to install appropriate dependenices and runs the app in development mode (see below).
 
 ### `npm start`
 
