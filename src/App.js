@@ -22,7 +22,7 @@ class App extends Component {
                 this.setState({
                     items: data.results,
                 });
-                console.log(data.results[0]);
+                console.log(data.results[7]);
             });
     }
 
@@ -42,6 +42,7 @@ class App extends Component {
                             overview={item.overview}
                             releaseDate={item.release_date}
                             posterPath={item.poster_path}
+                            voteCount={item.vote_count}
                         />
                     ))}
                 </ul>
