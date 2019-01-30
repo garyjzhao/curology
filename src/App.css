@@ -6,6 +6,11 @@
     .wrapper h1 {
         text-align: center;
     }
+    .wrapper input {
+        display: block;
+        width: 200px;
+        margin: 0 auto;
+    }
 
 .movie-listing {
     padding: 0;
