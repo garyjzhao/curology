@@ -31,9 +31,9 @@
     }
 
 .movie-listing {
-    padding: 0;
     list-style: none;
     margin-bottom: 50px;
+    padding: 0 25px;
 }
     .movie-listing li {
         margin-bottom: 15px;
