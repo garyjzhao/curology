@@ -6,17 +6,15 @@ import './App.css';
 class App extends Component {
     constructor(props) {
         super(props);
-        this.handleChange = this.handleChange.bind(this);
+        this.fetchMovieFromSearchInput = this.fetchMovieFromSearchInput.bind(
+            this
+        );
         this.state = {
             items: [],
-            isLoaded: false,
-            searchQuery: '',
         };
     }
 
     componentDidMount() {
-        // 403ffcb3b4481da342203f94fb6e937e
-        // https://api.themoviedb.org/3/search/movie?api_key=403ffcb3b4481da342203f94fb6e937e&query=${searchQuery}
         const url =
             'https://api.themoviedb.org/3/search/movie?api_key=403ffcb3b4481da342203f94fb6e937e&query=spiderman';
         this.fetchApi(url);
@@ -32,22 +30,20 @@ class App extends Component {
             });
     }
 
-    handleChange(searchInput) {
-        this.setState({
-            searchQuery: searchInput,
-        });
+    fetchMovieFromSearchInput(searchInput) {
+        const url = `https://api.themoviedb.org/3/search/movie?api_key=403ffcb3b4481da342203f94fb6e937e&query=${searchInput}`;
+        this.fetchApi(url);
     }
 
     render() {
-        const { items, searchQuery } = this.state;
+        const { items } = this.state;
 
         return (
             <div className="wrapper">
                 <h1>Movie Search App</h1>
-                <p>{searchQuery}</p>
                 <Input
                     placeholder="Enter Movie to Search"
-                    inputChange={this.handleChange}
+                    fetchMovie={this.fetchMovieFromSearchInput}
                 />
                 <ul className="movie-listing">
                     {items.map((item, i) => (
