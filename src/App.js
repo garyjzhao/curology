@@ -11,7 +11,7 @@ class App extends Component {
         );
         this.state = {
             items: [],
-            defaultMovie: 'spiderman',
+            defaultMovie: 'star wars',
         };
     }
 
@@ -35,13 +35,10 @@ class App extends Component {
         const { defaultMovie } = this.state;
         const baseURL =
             'https://api.themoviedb.org/3/search/movie?api_key=403ffcb3b4481da342203f94fb6e937e&include_adult=false&query=';
-        let url;
-        if (searchInput === '') {
-            url = `${baseURL}${defaultMovie}`;
-        } else {
-            url = `${baseURL}${searchInput}`;
-        }
-
+        const url =
+            searchInput === ''
+                ? `${baseURL}${defaultMovie}`
+                : `${baseURL}${searchInput}`;
         this.fetchApi(url);
     }
 
