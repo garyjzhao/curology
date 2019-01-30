@@ -16,7 +16,7 @@ class App extends Component {
 
     componentDidMount() {
         const url =
-            'https://api.themoviedb.org/3/search/movie?api_key=403ffcb3b4481da342203f94fb6e937e&query=spiderman';
+            'https://api.themoviedb.org/3/search/movie?api_key=403ffcb3b4481da342203f94fb6e937e&query=spiderman&include_adult=false';
         this.fetchApi(url);
     }
 
@@ -31,7 +31,7 @@ class App extends Component {
     }
 
     fetchMovieFromSearchInput(searchInput) {
-        const url = `https://api.themoviedb.org/3/search/movie?api_key=403ffcb3b4481da342203f94fb6e937e&query=${searchInput}`;
+        const url = `https://api.themoviedb.org/3/search/movie?api_key=403ffcb3b4481da342203f94fb6e937e&query=${searchInput}&include_adult=false`;
         this.fetchApi(url);
     }
 
