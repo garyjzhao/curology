@@ -12,6 +12,21 @@
         margin: 0 auto;
     }
 
+.pagination {
+    list-style: none;
+    padding: 0;
+    display: flex;
+    justify-content: center;
+}
+
+.pagination li {
+    border: 1px solid #000;
+    border-radius: 5px;
+    padding: 10px;
+    margin: 0 10px;
+    cursor: pointer;
+}
+
 .movie-listing {
     padding: 0;
     list-style: none;

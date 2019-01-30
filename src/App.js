@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import Input from './components/Input';
 import Listing from './components/Listing';
+import Pagination from './components/Pagination';
 import './App.css';
 
 class App extends Component {
@@ -9,9 +10,12 @@ class App extends Component {
         this.fetchMovieFromSearchInput = this.fetchMovieFromSearchInput.bind(
             this
         );
+        this.changePage = this.changePage.bind(this);
         this.state = {
             items: [],
             defaultMovie: 'star wars',
+            currentPage: 1,
+            itemsPerPage: 3,
         };
     }
 
@@ -19,6 +23,12 @@ class App extends Component {
         const { defaultMovie } = this.state;
         const url = `https://api.themoviedb.org/3/search/movie?api_key=403ffcb3b4481da342203f94fb6e937e&include_adult=false&query=${defaultMovie}`;
         this.fetchApi(url);
+    }
+
+    changePage(event) {
+        this.setState({
+            currentPage: event,
+        });
     }
 
     fetchApi(url) {
@@ -43,7 +53,14 @@ class App extends Component {
     }
 
     render() {
-        const { items } = this.state;
+        const { items, currentPage, itemsPerPage } = this.state;
+
+        // Logic to figure out which items to display on page
+        // according to how many items per page (default: 3) and
+        // the last item of that ammount
+        const indexOfLastItem = currentPage * itemsPerPage;
+        const indexofFirstItem = indexOfLastItem - itemsPerPage;
+        const currentItems = items.slice(indexofFirstItem, indexOfLastItem);
 
         return (
             <div className="wrapper">
@@ -52,8 +69,13 @@ class App extends Component {
                     placeholder="Enter Movie to Search"
                     fetchMovie={this.fetchMovieFromSearchInput}
                 />
+                <Pagination
+                    items={items}
+                    itemsPerPage={itemsPerPage}
+                    handleClick={this.changePage}
+                />
                 <ul className="movie-listing">
-                    {items.map((item, i) => (
+                    {currentItems.map((item, i) => (
                         <Listing
                             key={i}
                             title={item.title}
